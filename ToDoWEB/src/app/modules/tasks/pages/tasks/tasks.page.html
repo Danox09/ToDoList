@@ -1,0 +1,161 @@
+<div class="padding">
+    <div class="topTitle">
+        <h1>Tasks</h1>
+        <button class="addTask" (click)="openModal('Create Task')
+        
+        ">ADD TASK </button>
+        <app-modal [title]="modalTitle" [isOpen]="isCreateTaskModalOpen" (closeModal)="closeModal('Create Task')">
+            <form (ngSubmit)="createTask()">
+
+                <div id="input-container">
+                    <input type="text" id="name" name="name" class="form-control" required
+                        [(ngModel)]="taskVariable.assignmentName" #name="ngModel" placeholder="Task Name" />
+
+                    <div *ngIf="name.invalid && (name.dirty || name.touched )" class="alert">
+                        <div *ngIf="name.errors?.['required']"><fa-icon [icon]="faCircleExclamation" class="icon"
+                                id="alertIcon" title="Name is required"></fa-icon></div>
+                    </div>
+                </div>
+
+                <div id="input-container">
+                    <input type="text" id="description" name="description" class="form-control" required
+                        [(ngModel)]="taskVariable.assignmentDescription" #description="ngModel"
+                        placeholder="Task Description" />
+
+                    <div *ngIf="description.invalid && (description.dirty || description.touched )" class="alert">
+                        <div *ngIf="description.errors?.['required']"><fa-icon [icon]="faCircleExclamation" class="icon"
+                                id="alertIcon" title="Description is required"></fa-icon></div>
+                    </div>
+                </div>
+
+                <div id="input-container">
+                    <input type="datetime-local" id="date" name="date" class="form-control" required
+                        [(ngModel)]="taskVariable.assignmentDate" #date="ngModel" placeholder="Date" />
+
+                    <div *ngIf="date.invalid && (date.dirty || date.touched )" class="alert">
+                        <div *ngIf="date.errors?.['required']"><fa-icon [icon]="faCircleExclamation" class="icon"
+                                id="alertIcon" title="Date is required"></fa-icon></div>
+                    </div>
+                </div>
+                <!-- <input type="datetime-local" id="date" name="date"
+                    [ngModel]="taskVariable.assignmentDate?.toInputDateString()"
+                    (ngModelChange)="setAssignmentDate($event)"><br> -->
+
+                <input class="submit" type="submit" value="Submit">
+
+            </form>
+        </app-modal>
+    </div>
+    <div class="cardContainer">
+        <div class="card">
+            <div class="cardContent">
+                <div class="userPhoto">
+                    <img src="assets\img\usuario.png" class="pfp">
+                </div>
+
+                <div class="userInfo">
+                    <h4>{{user?.firstName + " " + user?.lastName}}</h4>
+                    <h5>{{user?.email}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery"></div>
+
+    <div class="tasksContainer">
+        <ng-container
+            *ngIf="groupedTasks['Active'].length === 0 && groupedTasks['Completed'].length === 0 && groupedTasks['Warning'].length === 0">
+            <p>Este usuario no tiene tareas</p>
+        </ng-container>
+
+        <div *ngFor="let status of ['Active', 'Completed', 'Warning']">
+            <ng-container *ngIf="groupedTasks[status].length > 0">
+                <h2>{{ status }} tasks:</h2>
+                <ul>
+                    <div *ngFor="let task of groupedTasks[status]" class="TaskCard"
+                        [ngStyle]="{'border-bottom-color': getBorderColor(task.status.status)}">
+                        <div class="leftSideCard">
+                            <div class="taskInfo">
+                                <h3>{{task.assignmentName}}</h3>
+                                <h4>{{task.assignmentDescription}}</h4>
+                                <h4>
+                                    {{task.assignmentDate | date: 'dd/MM/yyyy hh:mm a' }}
+                                </h4>
+                            </div>
+                        </div>
+
+                        <div class="rightSideCard">
+                            <button (click)="openModal('Edit Task', task)" class="dropbtn">
+                                <fa-icon [icon]="faPencil" class="icon"></fa-icon>
+                            </button>
+
+                            <app-modal [title]="modalTitle" [isOpen]="isEditTaskModalOpen"
+                                (closeModal)="closeModal('Edit Task')">
+
+                                <form (ngSubmit)="updateTask()">
+                                    <!-- <label for="aname">Task name:</label>
+                                    <input type="text" id="aname" name="aname"
+                                        [(ngModel)]="taskVariable.assignmentName"><br>
+
+                                    <label for="adesc">Task Description:</label>
+                                    <input type="text" id="adesc" name="adesc" class="description"
+                                        [(ngModel)]="taskVariable.assignmentDescription"><br>
+
+                                    <label for="date">Date:</label>
+                                    <input type="datetime-local" id="date" name="date"
+                                        [(ngModel)]="taskVariable.assignmentDate"><br> -->
+                                    <div id="input-container">
+                                        <input type="text" id="name" name="name" class="form-control" required
+                                            [(ngModel)]="taskVariable.assignmentName" #name="ngModel"
+                                            placeholder="Task Name" />
+
+                                        <div *ngIf="name.invalid && (name.dirty || name.touched )" class="alert">
+                                            <div *ngIf="name.errors?.['required']"><fa-icon [icon]="faCircleExclamation"
+                                                    class="icon" id="alertIcon" title="Name is required"></fa-icon>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="input-container">
+                                        <input type="text" id="description" name="description" class="form-control"
+                                            required [(ngModel)]="taskVariable.assignmentDescription"
+                                            #description="ngModel" placeholder="Task Description" />
+
+                                        <div *ngIf="description.invalid && (description.dirty || description.touched )"
+                                            class="alert">
+                                            <div *ngIf="description.errors?.['required']"><fa-icon
+                                                    [icon]="faCircleExclamation" class="icon" id="alertIcon"
+                                                    title="Description is required"></fa-icon></div>
+                                        </div>
+                                    </div>
+
+                                    <div id="input-container">
+                                        <input type="datetime-local" id="date" name="date" class="form-control" required
+                                            [(ngModel)]="taskVariable.assignmentDate" #date="ngModel"
+                                            placeholder="Date" />
+
+                                        <div *ngIf="date.invalid && (date.dirty || date.touched )" class="alert">
+                                            <div *ngIf="date.errors?.['required']"><fa-icon [icon]="faCircleExclamation"
+                                                    class="icon" id="alertIcon" title="Date is required"></fa-icon>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <label for="status">Status:</label><br>
+                                    <select id="status" name="status" [(ngModel)]="taskVariable.status.id">
+                                        <br>
+                                        <option *ngFor="let option of statusOptions" [value]="option.id">{{
+                                            option.status
+                                            }}
+                                        </option>
+                                    </select>
+
+                                    <input class="submit" type="submit" value="Submit">
+                                </form>
+                            </app-modal>
+                        </div>
+                    </div>
+                </ul>
+            </ng-container>
+        </div>

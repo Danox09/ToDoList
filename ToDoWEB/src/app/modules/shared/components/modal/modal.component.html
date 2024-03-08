@@ -1,0 +1,14 @@
+<div class="modal" [ngClass]="{ 'show': isOpen }" (click)="closeModal.emit()">
+
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <button (click)="closeModal.emit()" class="close-button"><fa-icon [icon]="faXmarkSquare"
+                class="icon"></fa-icon></button>
+
+        <div class="modal-header">
+            <h2>{{ title }}</h2>
+        </div>
+        <div class="modal-body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
