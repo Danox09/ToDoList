@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+}
+
+.padding {
+    padding-top: 100px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.topTitle {
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    padding-right: 0%;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-right: 50%;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-right: 50%;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-right: 50%;
+}
+
+.addTask {
+    width: 140px;
+    height: 45px;
+    background-color: transparent;
+    border-radius: 50px;
+    border-style: solid;
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    background-color: transparent;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 600px;
+    height: 210px;
+    background: var(--top-bar-background);
+    border-top: 4px solid #000000;
+    padding: 30px 30px 30px 30px;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContent {
+    text-align: left;
+    width: 80%;
+    height: 100%;
+}
+
+.pfp {
+    width: 110px;
+    height: 110px;
+    margin-left: 3px;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+.tasksContainer {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.TaskCard {
+    width: 100%;
+    width: 600px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--top-bar-background);
+    border-bottom: 3px solid rgba(52, 184, 135, 0.5);
+
+    text-align: center;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: rgba(48, 46, 46, 0.541) 0px 3px 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
+    opacity: 0.8;
+}
+
+.leftSideCard {
+    text-align: left;
+    width: 70%;
+    height: 100%;
+}
+
+.userInfo {
+    margin-left: 70px;
+    margin-top: -60px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.rightSideCard {
+    width: 30%;
+    height: 100%;
+}
+
+form {
+
+    width: 70%;
+}
+
+input {
+    margin-bottom: 5px;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 3px;
+}
+
+select {
+    width: 100%;
+}
+
+input.submit {
+    margin-top: 5px;
+    margin-bottom: 20px;
+
+    width: 100%;
+    height: 2.2rem;
+    background-color: #29c24f;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+::placeholder {
+    opacity: 1;
+}
+
+input:focus::placeholder {
+    opacity: 0.6;
+}
+
+fa-icon#alertIcon {
+    color: red;
+
+}
+
+input.submit:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+
+
+.TaskCard:hover {
+    opacity: 1;
+}
+
+.dropbtn:hover {
+    opacity: 1;
+}
+
+.dropbtn {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    opacity: 0.5;
+    display: block;
+    margin-top: 20%;
+    margin-left: 70%;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}

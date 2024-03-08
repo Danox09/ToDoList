@@ -1,0 +1,131 @@
+<div class="padding">
+    <div class="topTitle">
+        <h1>Users</h1>
+        <button class="addUser" (click)="openModal('Create User')"> ADD USER </button>
+        <app-modal [title]="modalTitle" [isOpen]="isCreateUserModalOpen" (closeModal)="closeModal('Create User')">
+            <form (ngSubmit)="createUser()">
+
+                <div id="input-container">
+                    <input type="text" id="name" name="name" class="form-control" required
+                        [(ngModel)]="userVariable.firstName" #name="ngModel" placeholder="First name" />
+
+                    <div *ngIf="name.invalid && (name.dirty || name.touched )" class="alert">
+                        <div *ngIf="name.errors?.['required']"><fa-icon [icon]="faCircleExclamation" class="icon"
+                                id="alertIcon" title="First name is required"></fa-icon></div>
+                    </div>
+                </div>
+
+                <div id="input-container">
+                    <input type="text" id="lastName" name="lastName" class="form-control" required
+                        [(ngModel)]="userVariable.lastName" #lastName="ngModel" placeholder="Last Name" />
+
+                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched )" class="alert">
+                        <div *ngIf="lastName.errors?.['required']"><fa-icon [icon]="faCircleExclamation" class="icon"
+                                id="alertIcon" title="Last name is required"></fa-icon></div>
+                    </div>
+                </div>
+
+                <div id="input-container">
+                    <input type="text" id="email" name="email" class="form-control" required
+                        [(ngModel)]="userVariable.email" #email="ngModel" placeholder="Email" />
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched )" class="alert">
+                        <div *ngIf="email.errors?.['required']"><fa-icon [icon]="faCircleExclamation" class="icon"
+                                id="alertIcon" title="Email is required"></fa-icon></div>
+                    </div>
+                </div>
+
+                <input class="submit" type="submit" value="Submit">
+
+            </form>
+        </app-modal>
+    </div>
+
+    <div class="gallery">
+        <div *ngFor="let user of users; let iControl=index" class="card">
+
+            <div class="leftSideCard">
+                <div class="userPhoto">
+                    <img src="assets\img\usuario.png" [routerLink]="['/', user.id, 'tasks']" class="pfp">
+                </div>
+
+                <div class="userInfo">
+                    <h2 [routerLink]="['/', user.id, 'tasks']">{{user.firstName +" "+ user.lastName}}</h2>
+                    <h5 [routerLink]="['/', user.id, 'tasks']">{{user.email}}</h5>
+                </div>
+            </div>
+
+            <div class="rightSideCard">
+                <button (click)="toggleDropdown(user)" class="dropbtn">
+                    <fa-icon [icon]="faEllipsisVertical" class="icon"></fa-icon>
+                </button>
+
+                <div class="dropdown">
+                    <div class="dropdown-content" [ngClass]="{'show': user.expanded}">
+                        <button (click)="openModal('Edit User', user)">Edit</button>
+                        <app-modal [title]="modalTitle" [isOpen]="isEditUserModalOpen"
+                            (closeModal)="closeModal('Edit User')">
+                            <form (ngSubmit)="updateUser()">
+                                <!-- <label for="fname">First name:</label>
+                                <input type="text" id="fname" name="fname" [(ngModel)]="userVariable.firstName"><br>
+
+                                <label for="lname">Last name:</label>
+                                <input type="text" id="lname" name="lname" [(ngModel)]="userVariable.lastName"><br>
+
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" [(ngModel)]="userVariable.email"><br>
+ -->
+
+                                <div id="input-container">
+                                    <label for="name">First name:</label>
+                                    <input type="text" id="name" name="name" class="form-control" required
+                                        [(ngModel)]="userVariable.firstName" #name="ngModel" placeholder="First name" />
+
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched )" class="alert">
+                                        <div *ngIf="name.errors?.['required']"><fa-icon [icon]="faCircleExclamation"
+                                                class="icon" id="alertIcon" title="First name is required"></fa-icon>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="input-container">
+                                    <label for="lastName">Last name:</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control" required
+                                        [(ngModel)]="userVariable.lastName" #lastName="ngModel"
+                                        placeholder="Last Name" />
+
+                                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched )"
+                                        class="alert">
+                                        <div *ngIf="lastName.errors?.['required']"><fa-icon [icon]="faCircleExclamation"
+                                                class="icon" id="alertIcon" title="Last name is required"></fa-icon>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="input-container">
+                                    <label for="email">Email:</label>
+                                    <input type="text" id="email" name="email" class="form-control" required
+                                        [(ngModel)]="userVariable.email" #email="ngModel" placeholder="Email" />
+
+                                    <div *ngIf="email.invalid && (email.dirty || email.touched )" class="alert">
+                                        <div *ngIf="email.errors?.['required']"><fa-icon [icon]="faCircleExclamation"
+                                                class="icon" id="alertIcon" title="Email is required"></fa-icon></div>
+                                    </div>
+                                </div>
+                                <input class="submit" type="submit" value="Submit">
+                            </form>
+                        </app-modal>
+
+                        <button (click)="openModal('Delete User', user)">Delete</button>
+                        <app-modal [title]="modalTitle" [isOpen]="isDeleteUserModalOpen"
+                            (closeModal)="closeModal('Delete User')" class="deleteModal">
+                            <button (click)="deleteUser(users[iControl]?.id)" class="deleteButton">YES</button>
+                            <button (click)="closeModal('Delete User')" class="deleteButton">NO</button>
+
+                        </app-modal>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

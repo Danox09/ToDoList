@@ -2,11 +2,11 @@
 
 ## Description
 
-The CodeMinds To DO App is a dynamic and feature-rich e-commerce platform developed as a part of the CodeMinds academy curriculum. This full-stack project leverages cutting-edge technologies to deliver a perfect “planner” experience.
+The CodeMinds To Do List App is a dynamic and feature-rich e-commerce platform developed as a part of the CodeMinds academy curriculum. This full-stack project leverages cutting-edge technologies to deliver a perfect “planner” experience.
 
 ## Description
 
-The primary goal of this project is to showcase the integration of frontend and backend technologies in a real-world scenario, emphasizing the CodeMinds academy's commitment to practical, hands-on learning. The ToDolist web app serves as a comprehensive example of a full-stack solution, highlighting best practices in web development and fostering a collaborative learning environment.
+The primary goal of this project is to showcase the integration of frontend and backend technologies in a real-world scenario, emphasizing the CodeMinds academy's commitment to practical, hands-on learning. The ToDoList web app serves as a comprehensive example of a full-stack solution, highlighting best practices in web development and fostering a collaborative learning environment.
 
 ## Technologies Used
 

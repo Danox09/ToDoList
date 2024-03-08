@@ -1,3 +1,4 @@
+--If it does not exist, the database is created
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'ToDoDB')
 BEGIN 
 	CREATE DATABASE ToDoDB;
@@ -6,6 +7,7 @@ GO
 USE ToDoDB;
 GO
 
+--If it does not exist, the Person table is created
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'Person')
 BEGIN 
 	CREATE TABLE Person (
@@ -18,6 +20,7 @@ BEGIN
 END
 GO
 
+--If it does not exist, the AssignmentStatus table is created
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'AssignmentStatus')
 BEGIN
 	CREATE TABLE AssignmentStatus(
@@ -28,6 +31,7 @@ BEGIN
 END
 GO
 
+--If it does not exist, the Assignment table is created
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'Assignment')
 BEGIN
 	CREATE TABLE Assignment (
@@ -35,7 +39,6 @@ BEGIN
 	AssignmentName VARCHAR(50) NOT NULL,
 	AssignmentDescription VARCHAR (300) NOT NULL,
 	AssignmentDate DATETIME2 NOT NULL,
-	---------------------
 	StatusId INT NOT NULL,
 	PersonId INT NOT NULL,
 	CONSTRAINT PKAssignments PRIMARY KEY(Id),
@@ -45,6 +48,7 @@ BEGIN
 END
 GO
 
+--If they do not exist, the status data is added to the AssignmentStatus table
 IF NOT EXISTS (SELECT * FROM AssignmentStatus WHERE Status = 'Active')
 BEGIN
 	INSERT INTO AssignmentStatus(Status) VALUES ('Active')
@@ -55,4 +59,8 @@ BEGIN
 	INSERT INTO AssignmentStatus(Status) VALUES ('Completed')
 END
 
+IF NOT EXISTS (SELECT * FROM AssignmentStatus WHERE Status = 'Warning')
+BEGIN
+	INSERT INTO AssignmentStatus(Status) VALUES ('Warning')
+END 
 GO

@@ -1,0 +1,10 @@
+<body (click)="closeDropdown.emit()">
+    <div class="myDropdown" [ngClass]="{ 'show': isOpen }" class="dropdown-content">
+
+        <div class="dropdown-content" (click)="$event.stopPropagation()">
+            <div class="dropdown-body">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,9 @@
+body.dark {
+    --top-bar-background: #60412b;
+
+    --body-background: #ffe599;
+
+    --main-text-color: #000000;
+    --main-hover-background: rgba(255, 255, 255, 0.1);
+    --color-scrollbar-light: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,56 @@
+header {
+    max-height: 7rem;
+    padding: 1rem;
+    background: var(--top-bar-background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    transition: background-color 0.2s linear;
+}
+
+
+.img-container {
+    max-height: 7rem;
+    padding: 0rem;
+    transition: none;
+
+}
+
+.img-container img {
+    max-height: 7rem;
+
+}
+
+button {
+    border: 0;
+    padding: 1rem;
+    font-size: 1.8rem;
+    border: 0.2rem;
+    background: none;
+    color: --var(--main-text-color);
+    transition: background-color 0.2s linear;
+}
+
+li a:hover,
+a.active,
+button:hover {
+    background: var(--main-hover-background);
+}

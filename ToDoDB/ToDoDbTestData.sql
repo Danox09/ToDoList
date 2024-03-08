@@ -46,7 +46,7 @@ GO
 IF NOT EXISTS(SELECT * FROM Assignment WHERE AssignmentName = 'Almuerzo'
 )
 BEGIN
-	INSERT INTO Assignment(AssignmentName, AssignmentDescription, AssignmentDate, PersonId, StatusId) VALUES ('Almuerzo', 'Comprar comida para el almuerzo', '2024-03-7 14:30:00.000', 3, 2)
+	INSERT INTO Assignment(AssignmentName, AssignmentDescription, AssignmentDate, PersonId, StatusId) VALUES ('Almuerzo', 'Comprar comida para el almuerzo', '2024-03-7 20:30:00.000', 3, 3)
 END
 GO
 

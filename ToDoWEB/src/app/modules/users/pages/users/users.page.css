@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.topTitle {
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    padding-right: 0%;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-right: 50%;
+}
+
+.addUser {
+    width: 140px;
+    height: 45px;
+    background-color: transparent;
+    border-radius: 50px;
+    border-style: solid;
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    background-color: transparent;
+}
+
+form {
+    width: 70%;
+}
+
+input {
+    margin-bottom: 5px;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 3px;
+}
+
+input.submit {
+    margin-top: 5px;
+    width: 100%;
+    height: 2.2rem;
+    background-color: #000000;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+fa-icon#alertIcon {
+    color: red;
+    font-size: 18px;
+    margin-top: -1%;
+    margin-left: 93%;
+}
+
+input.submit:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+::placeholder {
+    opacity: 1;
+}
+
+input:focus::placeholder {
+    opacity: 0.6;
+}
+
+.deleteModal button {
+    height: 5rem;
+    width: 3rem;
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.card {
+    width: 400px;
+    height: 160px;
+    background: var(--top-bar-background);
+    border-top: 4px solid #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.leftSideCard {
+    text-align: left;
+    width: 80%;
+    height: 100%;
+}
+
+.pfp {
+    width: 90px;
+    height: 90px;
+    margin-left: 3px;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+.userInfo {
+    margin-left: 70px;
+    margin-top: -60px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.rightSideCard {
+    width: 10%;
+    height: 100%;
+}
+
+.dropbtn {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    opacity: 0.5;
+    display: block;
+    margin-top: 150%;
+    margin-left: 70%;
+}
+
+
+.dropdown-content {
+    display: none;
+}
+
+.dropdown-content.show {
+    margin-top: 15px;
+    margin-left: 15px;
+    background-color: rgb(13, 13, 14);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    overflow: auto;
+    z-index: 2;
+    flex-direction: column;
+    border-radius: 4px;
+    width: 65px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin: auto;
+}
+
+.droped {
+    width: 30%;
+    height: 30%;
+}
+
+.dropdown-content button {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 80%;
+    border-color: rgb(250, 250, 250);
+    background-color: transparent;
+    opacity: 1;
+    border-radius: 8px;
+    margin: 3px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.dropdown-content button.deleteButton {
+    border-width: 5px;
+    border-radius: 10px;
+}
+
+.show {
+    display: block;
+}
+
+.dropbtn:hover {
+    opacity: 1;
+}
+
+.addUser:hover {
+    background: var(--main-hover-background);
+}
+
+.pfp:hover {
+    opacity: 1;
+}
+
+.dropdown-content button:hover {
+    opacity: 0.8;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
